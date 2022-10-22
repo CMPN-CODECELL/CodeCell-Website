@@ -1,0 +1,368 @@
+@font-face {
+    font-family: 'Basement';
+    src:  url('BasementGrotesque-Black_v1.202.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    line-height: normal;
+}
+
+@font-face {
+    font-family: 'Mermaid';
+    src:  url('Mermaid1001.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    line-height: normal;
+}
+
+  body{
+    background-color: black;
+  }
+
+  .head{
+    line-height: 250%;
+    margin-top: 5rem;
+  }
+      
+  .heading, .f-head{
+    font-family: 'Basement';
+    font-size: 50px;
+    color: white;
+  }
+  .f-head{
+    font-size: 2rem;
+  }
+  .heading2{
+    font-family: 'Mermaid';
+    font-size: 50px;
+    color: white;
+  }
+
+  @media screen and (max-device-width: 480px)
+  and (orientation: portrait) {
+    .head{
+      
+      margin-top: 1rem;
+    }
+    .heading{
+      font-size: 30px;
+    }
+    .heading2{
+      font-size: 30px;
+    }
+    .f-head{
+        font-size: 25px;
+    }
+    .c2{
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+  } 
+
+
+a,
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.section-products {
+    padding: 10px 0px 10px 0px;
+}
+
+.section-products .header {
+    margin-bottom: 50px;
+}
+
+.section-products .header h3 {
+    font-size: 1rem;
+    color: #fe302f;
+    font-weight: 500;
+}
+
+.section-products .header h2 {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #444444; 
+}
+
+.section-products .single-product {
+    margin-bottom: 26px;
+}
+
+.section-products .single-product .part-1 {
+    position: relative;
+    height: 290px;
+    max-height: 290px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.section-products .single-product .part-1::before {
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		transition: all 0.3s;
+}
+
+.section-products .single-product:hover .part-1::before {
+		transform: scale(1.2,1.2) ;
+}
+
+.section-products #Yash-Brid .part-1::before {
+    background: url("Y:/Codecell Website/Photos/Yash _Brid_edited.jpg") no-repeat center;
+    background-size: cover;
+		transition: all 0.3s;
+}
+
+.section-products #Nupur-Giri .part-1::before {
+    background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.section-products #Prashant-Kanade .part-1::before {
+    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.section-products #Richard-Joseph .part-1::before {
+    background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.section-products #Geocey-Shejy .part-1::before {
+  background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Tejas-Mahajan .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Tejas-M.jpeg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Neeharika-Nagori .part-1::before {
+  background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Rakshit-Deshmukh .part-1::before {
+  background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Yashraj-Desai .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Yashrajcrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Mihir-Pamnani .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Mihircrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Vaidehi-Bhagwat .part-1::before {
+  background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Vishesh-Mittal .part-1::before {
+  background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Sneha-Karthik .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Snehacrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Ananya-Pandey .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Ananyacrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Madhura-Mhatre .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Madhuracrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Sakshi-Shinde .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Sakshi_crop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Aayushi-Salunkhe .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Aayushicrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Om-Gole .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Omcrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Dhananjay-Pai .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Dhananjaycrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Yash-Narkhede .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Yash_N.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Yashvi-Dhar .part-1::before {
+  background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Japneet-Rajput .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Japneetcrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Khushi-Bhatia .part-1::before {
+  background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Neeraj-Chawla .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Neerajcrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Tanmay-Thakare .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Tanmaycrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Aditya-Mangtani .part-1::before {
+  background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Saumya-Tripathi .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Saumyacrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Vedant-Pawar .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Vedantcrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Mansi-Sharma .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Mansicrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Himesh-Hotwani .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Himeshcrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Chengalva-Sai .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Saicrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Attreye-Mukherjee .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Atrcrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Sadhak-Kumar .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Sadhakcrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Yashodhan-Sharma .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Yashodhancrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #Soham-Tawade .part-1::before {
+  background: url("Y:/Codecell Website/Photos/Sohamcrop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+
+.section-products .single-product .part-2 .product-title {
+    font-size: 1.3rem;
+    color: white;
+    font-family: 'Basement';
+    /* letter-spacing: 1px; */
+    text-align: center;
+}
+
+.section-products .single-product .part-2 h4 {
+    /* display: inline-block; */
+    font-size: 1.2rem;
+    font-family: 'Mermaid';
+    text-align: center;
+    color: white;
+}
+
+/* nav css */
+.logo{
+  font-size: 2.5rem !important;
+  font-family:'Basement' !important;
+}
+
+.basement{
+  font-family:'Basement' !important;
+}
+
+.mermaid{
+  font-family:'Mermaid' !important;
+}
+
+/* nav css end */
+
+.section-products .single-product .part-1 ul {
+  position: absolute;
+  bottom: -41px;
+  left: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  transition: bottom 0.5s, opacity 0.5s;
+}
+
+.section-products .single-product:hover .part-1 ul {
+  bottom: 30px;
+  opacity: 1;
+}
+
+.section-products .single-product .part-1 ul li {
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.section-products .single-product .part-1 ul li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #ffffff;
+  color: #444444;
+  text-align: center;
+  box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
+  transition: color 0.2s;
+}
+
+.section-products .single-product .part-1 ul li a:hover {
+  color: #fe302f;
+}
+
+.hidden{
+  opacity: 0;
+  transition: all 1s;
+}
+
+.show{
+  opacity: 1;
+}
