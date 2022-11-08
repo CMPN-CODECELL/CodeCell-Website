@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Basement';
+  src:  url('BasementGrotesque-Black_v1.202.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  line-height: normal;
+}
+
+@font-face {
+  font-family: 'Mermaid';
+  src:  url('Mermaid1001.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  line-height: normal;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+
+/* General Styling */
+html{
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body{
+   /* background-image: url('./backgroundbg.png'); */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background: #111;
+}
+
+.logo{
+  font-size: 4rem !important;
+  font-family:'Basement' !important;
+}
+
+.nav-font{
+	font-size: 3.2rem;
+}
+
+.basement{
+  font-family:'Basement' !important;
+}
+
+.mermaid{
+  font-family:'Mermaid' !important;
+}
+
+.events{
+  display: block;
+  font-size: 4.5rem;
+}
+
+.events-header{
+  margin-top:10%;
+  margin-bottom: 5%;
+}
+
+.events-header h2{
+  font-size:5rem !important;
+}
+
+.bg-yellow{
+  background-color: #111 !important;
+}
+
+.img-round {
+  border-radius:30px;
+  /* min-height: 100%; */
+}
+
+.card-content-left {
+  padding-left:5rem !important;
+}
+
+.card-content-right {
+  padding-right:5rem !important;
+}
+
+.card-header{
+  font-size: 3rem;
+  padding-left: 0;
+}
+
+/* Syrus */
+.accordion-button::after {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button:not(.collapsed)::after {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+	transform: rotate(-180deg);
+}
+
+.accordion-title {
+	font-size: 2.25rem;
+	border-bottom: #ffffff 1px solid;
+	margin-bottom: 1rem;
+}
+
+.accordion-title:focus {
+	box-shadow:none !important;
+}
+
+.accordion-button:focus {
+	border-color: white !important;
+}
+
+
+.bg-accordion {
+	background-color: #2f363e !important;
+}
+
+.syrus-header{
+	font-size: 9rem;
+}
+
+.syrus-large {
+	font-size: 3.75rem;
+	margin-bottom: 6rem;
+}
+
+.syrus-logo{
+	width:22%;
+	margin-left: -15rem;
+}
+
+.syrus-margin {
+	padding-bottom: 10rem;
+}
+
+.syrus-showcase{
+	height:90vh;
+}
+
+.btn-register {
+	padding:1.5rem 3rem;
+	border: 1px white solid;
+	border-radius: 50px;
+	font-size: 2rem;
+	display: inline-block;
+	text-decoration: none;
+	margin:0px auto;
+	color:white;
+	transition: all 0.4s ease-in-out;
+}
+
+.btn-register:hover {
+	background-color: white;
+	color:#111;
+}
+
+.hollow-text {
+	color: #111;
+	-webkit-text-stroke: 1px #fff;
+}
+
+.events-container{
+ max-width: 1200px;
+ margin: auto;
+ padding:0rem 3rem 5rem 3rem;
+}
+
+/* Footer */
+.social-icon {
+  color:white;
+  display: inline-block;
+  border:1px solid white;
+	font-size: 1.6rem;
+  border-radius:100%;
+  padding: 0.65rem 1.5rem;
+}
+
+.social-icon:hover {
+  color:black;
+  background-color: white;
+}
+
+/* responsive */
+@media(max-width: 767px){
+	.timeline-items::before{
+		left: 7px;
+	}
+	.timeline-item:nth-child(odd){
+		padding-right: 0;
+		text-align: left;
+	}
+	.timeline-item:nth-child(odd),
+	.timeline-item:nth-child(even){
+		padding-left: 37px;
+	}
+	.timeline-dot{
+		left:0;
+	}
+
+	
+
+	.events-header h2{
+    font-size:3.25rem !important;
+  }
+
+  .events{
+    font-size:2.75rem !important;
+  }
+
+	.syrus-logo{
+		margin-left: 0rem;
+		width: 35%;
+		margin-top: -2rem;
+	}
+
+	.syrus-header {
+		padding-top: 4rem;
+		font-size: 5rem;
+	}
+
+	.justify {
+		text-align: justify !important;
+	}
+}
+
+@media(max-width: 992px) {
+	.syrus-header{
+		font-size: 7rem;
+	}
+	.syrus-logo{
+		width:22%;
+		margin-left: 0rem;
+	}
+
+	.card-content-left {
+    padding-left:0rem !important;
+  }
+  
+  .card-content-right {
+    padding-right:0rem !important;
+  }
+
+	.events-container {
+		max-width: 800px;
+	}
+	
+}
+
+@media(max-width: 500px){
+	.syrus-header{
+		font-size: 5rem;
+	}
+
+	.syrus-logo{
+		width: 30%;
+	}
+
+	.accordion-title {
+		font-size: 1.5rem;
+	}
+
+	.events-container{
+		padding-left: 1rem;
+		padding-right: 1rem;
+	 }
+}
