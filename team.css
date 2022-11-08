@@ -348,6 +348,20 @@ a:hover {
   opacity: 1;
 }
 
+.social-icon {
+  color:white;
+  display: inline-block;
+  border:1px solid white;
+  border-radius:100%;
+  padding: 0.65rem 1rem;
+}
+
+.social-icon:hover {
+  color:black;
+  background-color: white;
+}
+
+
 @media screen and (max-device-width: 480px) {
   .head{
     
