@@ -27,6 +27,7 @@
 html{
   font-size: 62.5%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 body{
@@ -38,12 +39,12 @@ body{
 }
 
 .logo{
-  font-size: 2.4rem !important;
+  font-size: 4rem !important;
   font-family:'Basement' !important;
 }
 
 .nav-font{
-	font-size: 2.4rem;
+	font-size: 3.2rem;
 }
 
 .basement{
@@ -134,7 +135,7 @@ body{
 }
 
 .syrus-margin {
-	padding-bottom: 10rem;
+	padding-bottom: 6rem;
 }
 
 .syrus-showcase{
@@ -182,6 +183,11 @@ body{
 .social-icon:hover {
   color:black;
   background-color: white;
+}
+
+.syrus-sponsors{
+	font-size: 3.75rem;
+	padding-top: 2rem;
 }
 
 /* responsive */
@@ -268,3 +274,38 @@ body{
 		padding-right: 1rem;
 	 }
 }
+
+/* Basic grid styles */
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+	/* padding: 42px; */
+	/* overflow-x: hidden; */
+	
+  }
+  .grid-item {
+	background-color: #f1f1f1;
+	padding: 20px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+  }
+  
+  /* Responsive styles */
+  @media only screen and (max-width: 768px) {
+	.grid-container {
+	  grid-template-columns: repeat(2, 1fr);
+	  padding: 30px;
+	}
+  }
+  
+  @media only screen and (max-width: 426px) {
+	.grid-container {
+	  grid-template-columns: repeat(1, 1fr);
+	  padding: 10px;
+	}
+  }
+  
