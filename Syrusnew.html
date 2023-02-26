@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Syrus Hackathon Logo.svg" type="image/icon type">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+    <title>Syrus</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nixie+One&display=swap');
+        @font-face {
+  font-family: 'Joystix Monospace';
+  src:  url('joystix monospace.otf') format('opentype');
+}
+
+.bit-text{
+    font-family: 'Joystix Monospace';
+}
+
+
+body{
+    overflow-x: hidden;
+}
+
+.hollow-orange{
+    color: transparent;
+    -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: rgb(239, 110, 50);
+}
+
+.hollow{
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+}
+
+.normal-text{
+    /* font-family: 'Nixie One', cursive; */
+}
+
+.grid-item {
+    color: #fff;
+    background: skyblue;
+    padding: 3.5em 1em;
+    font-size: 1em;
+    font-weight: 700;
+  }
+
+  .main {
+    color: #959595;
+    background-color: white;
+    grid-area: main;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    
+  }
+
+  .items {
+    position: relative;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    transition: all 0.2s;
+    transform: scale(0.98);
+    will-change: transform;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .items::-webkit-scrollbar {
+  display: none;
+}
+
+  .items.active {
+    
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    transform: scale(1);
+  }
+
+  .item {
+    display: inline-block;
+    background: skyblue;
+    min-height: 250px;
+    min-width: 400px;
+    margin: 2em 1em;
+  }
+  .bg-img1{
+    background-image: url("./Gallery/syrus2019.jpg");
+    background-size: cover;
+  }
+  .bg-img2{
+    background-image: url("./Gallery/syrus2020.jpg");
+    background-size: cover;
+  }
+  .bg-img3{
+    background-image: url("./Gallery/IMG_20200306_165610.jpg");
+    background-size: cover;
+  }
+  .bg-img4{
+    background-image: url("./Gallery/richardsir.PNG");
+    background-size: cover;
+  }
+  .bg-img5 {
+    background-image: url("./Gallery/faculty.PNG");
+    background-size: cover;
+  }
+  .bg-img6 {
+    background-image: url("./Gallery/allmembers.PNG");
+    background-size: cover;
+  }
+
+  
+  .tile{
+    height: 30px;
+    width: 30px;
+    margin: 2px;
+    background-color: #fff;
+    outline: 2px solid black;
+  }
+
+  .pixel2 {
+  display: block;
+  margin: 10px;
+  font-family: 'Joystix Monospace';
+  text-transform: uppercase;
+  padding: 10px 10px;
+  position: relative;
+  background: rgb(112, 22, 231);
+  width: 125px;
+  z-index: 2;
+  color: white;
+  display: inline-block;
+  vertical-align: top;
+  text-transform: uppercase;
+  
+  cursor: pointer;
+  
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.pixel2:active {
+  top: 2px;
+}
+
+
+
+.pixel2::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: -10px;
+  right: -10px;
+  background: rgb(112, 22, 231);
+  z-index: -1;
+}
+
+.pixel2::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: -6px;
+  right: -6px;
+  background: rgb(112, 22, 231);
+  z-index: -1;
+}
+@media screen and (max-width: 768px) {
+    
+    .hollow, .hollow-orange{
+        -webkit-text-stroke-width: 1px;
+    }
+    
+}
+@media screen and (max-width: 500px) {
+    .item {
+      min-height: 200px;
+      min-width: 200px;
+    }
+  }
+    
+    </style>
+    <link rel="stylesheet" href="./syrus.css">
+</head>
+<body class="bg-slate-800" style="overflow-x: hidden;">
+  
+<nav class="bg-white px-2 sm:px-4  dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+  <div class="container flex flex-wrap items-center justify-between mx-auto">
+  <a href="index.html" class="flex items-center">
+      <img src="Vector1.png" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo">
+      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">CodeCell</span>
+  </a>
+  <div class="flex md:order-2">
+    <img src="vesit.png" class="w-20  text-white p-2 ">
+      <!-- <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get started</button> -->
+      <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+    </button>
+  </div>
+  <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+    <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      
+      <li>
+        <a href="index.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</a>
+      </li>
+      <li>
+        <a href="team.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Team</a>
+      </li>  
+      <li>
+        <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Syrus</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+    <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container px-5 pt-32 pb-10 mx-auto align-middle">
+          <div class="lg:w-4/5 mx-auto flex flex-wrap ">
+            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0 ">
+              <h2 class=" md:text-6xl hollow-orange text-4xl title-font font-medium mb-4 bit-text">SYRUS HACKATHON</h2>
+              <h1 class="text-lime-400 md:text-3xl text-3xl title-font font-medium mb-4 bit-text">>Develop some epic apps. Get some swag. Fall down the rabbit hole. Win.</h1>
+              <div class="pixel2 apply-button" data-hackathon-slug="SYRUS" data-button-theme="dark">Register</div>
+            </div>
+            <div class="lg:w-1/2 w-full lg:py-6 mb-6 lg:mb-0 ">
+              <img alt="ecommerce" class="w-full rounded-lg border-2 border-indigo-500" src="./coding2.gif" draggable="false">
+            </div>
+          </div>
+        </div>
+    </section>
+    <div class="container text-center mt-10 mb-10 sm:mt-8">
+      <h1 class="text-gray-100 text-2xl uppercase tracking-widest ">
+        March 10-11, 2023
+      </h1>
+
+      <div class="mt-10 flex justify-center gap-3 md:gap-8">
+        <div class="items-center justify-center flex">
+          <img src="coder.png" style="transform: scaleX(-1);" class="w-32 " alt="" draggable="false">
+        </div>
+        <div>
+          <div class="rounded-lg shadow-xl bg-slate-300 w-20 h-20 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center relative">
+            <div class="bg-slate-800 md:w-4 md:h-4 w-3 h-3 rounded-lg absolute -left-2"></div>
+            <div class="bg-slate-800 md:w-4 md:h-4 w-3 h-3 rounded-lg absolute -right-2"></div>
+
+            <h1 id="days" class="text-primary text-3xl sm:text-4xl md:text-6xl lg:text-7xl">08</h1>
+          </div>
+          <h5 class="uppercase text-gray-100 mt-5 text-xs sm:text-sm lg:text-lg">
+            days
+          </h5>
+        </div>
+
+        <div>
+          <div class="rounded-lg shadow-xl bg-slate-300 w-20 h-20 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center relative">
+            <div class="bg-slate-800 md:w-4 md:h-4 w-3 h-3 rounded-lg absolute -left-2"></div>
+            <div class="bg-slate-800 md:w-4 md:h-4 w-3 h-3 rounded-lg absolute -right-2"></div>
+
+            <h1 id="hours" class="text-primary text-3xl sm:text-4xl md:text-6xl lg:text-7xl">23</h1>
+          </div>
+          <h5 class="uppercase text-gray-100 mt-5 text-xs sm:text-sm lg:text-lg">
+            hours
+          </h5>
+        </div>
+
+        <div>
+          <div class="rounded-lg shadow-xl bg-slate-300 w-20 h-20 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center relative">
+            <div class="bg-slate-800 md:w-4 md:h-4 w-3 h-3 rounded-lg absolute -left-2"></div>
+            <div class="bg-slate-800 md:w-4 md:h-4 w-3 h-3 rounded-lg absolute -right-2"></div>
+
+            <h1 id="minutes" class="text-primary text-3xl sm:text-4xl md:text-6xl lg:text-7xl">57</h1>
+          </div>
+          <h5 class="uppercase text-gray-100 mt-5 text-xs sm:text-sm lg:text-lg">
+            minutes
+          </h5>
+        </div>
+
+        <div>
+          <div class="rounded-lg shadow-xl bg-slate-300 w-20 h-20 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center relative">
+            <div class="bg-slate-800 md:w-4 md:h-4 w-3 h-3 rounded-lg absolute -left-2"></div>
+            <div class="bg-slate-800 md:w-4 md:h-4 w-3 h-3 rounded-lg absolute -right-2"></div>
+
+            <h1 id="seconds" class="text-primary text-3xl sm:text-4xl md:text-6xl lg:text-7xl">40</h1>
+          </div>
+          <h5 class="uppercase text-gray-100 mt-5 text-xs sm:text-sm lg:text-lg">
+            seconds
+          </h5>
+        </div>
+        <div class="items-center justify-center flex">
+          <img src="coder.png" class="w-32" alt="" draggable="false">
+        </div>
+      </div>
+      
+    </div>
+    <section class="text-gray-600 body-font overflow-hidden">
+        
+        <div class="container px-5 pt-10 pb-10 mx-auto align-middle ">
+            <div class="text-center">
+                <h2 class=" md:text-6xl hollow text-4xl title-font font-medium mb-4 bit-text">What is <span class="hollow-orange">Syrus</span> ?</h2></div>
+            <div class="lg:w-4/5 mx-auto flex flex-wrap ">
+            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0 ">
+              
+                <h1 class="text-white md:text-3xl text-1xl title-font font-normal  mb-4  normal-text">Syrus is  focused on promoting innovation, diversity and networking among all future engineers. 
+                    Upcoming engineers and developers were hosted for an intense 24-hour session. 
+                    Participants were able to gain hands-on knowledge of the present trends and quite possibly set new ones themselves.
+                </h1>
+            </div>
+            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mb-6 lg:mb-0">
+              <div class="flex flex-col justify-center items-center">
+                <img src="./Syrus Hackathon Logo.svg" class="h-60" alt="Syrus Logo" draggable="false"/>
+                </div>
+            </div>
+            
+            
+          </div>
+        </div>
+    </section>
+    <div class="container px-5 pt-10 pb-10 mx-auto align-middle ">
+      <div class="text-center">
+          <h2 class=" md:text-6xl hollow text-4xl title-font font-medium mb-4 bit-text">Timeline</h2>
+        </div>
+        <img src="coding1.gif" class="absolute  left-10  md:block hidden w-32 h-32" alt="git gif" draggable="false"/>
+        <img src="github_gif.gif" class="absolute  right-10  md:block hidden w-32 h-32" alt="Syrus Logo" draggable="false"/>
+        <section class="body-font overflow-hidden">
+          <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap justify-center -m-4">
+              <div class="p-4 md:w-1/3 w-full">
+                <div class="h-full p-6 rounded-lg border-2 border-indigo-500 flex flex-col relative overflow-hidden">
+                  <h2 class="text-3xl bit-text text-white text-center">Day 1</h2>
+                  <section class="timeline-section">
+                    <div class="timeline-items">
+                      <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date bit-text">8:00 am</div>
+                        <div class="timeline-content">
+                          <h3 class="bit-text text-md">Problem statement allotment</h3>
+                        </div>
+                      </div>
+                      <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date bit-text">8:30 am</div>
+                        <div class="timeline-content">
+                          <h3 class="bit-text text-md">Speaker Talk</h3>
+                        </div>
+                      </div>
+                      <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date bit-text">9:00 am</div>
+                        <div class="timeline-content">
+                          <h3 class="bit-text text-md">Hackathon begins</h3>
+                        </div>
+                      </div>
+                      <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date bit-text">9:00 pm</div>
+                        <div class="timeline-content">
+                          <h3 class="bit-text text-md">End of Day 1</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="p-4 md:w-1/3 w-full">
+                <div class="h-full p-6 rounded-lg border-2 border-indigo-500 flex flex-col relative overflow-hidden">
+                  <h2 class="text-3xl bit-text text-white text-center">Day 2</h2>
+                  <section class="timeline-section">
+                    <div class="timeline-items">
+                      <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date bit-text">8:00 am</div>
+                        <div class="timeline-content">
+                          <h3 class="bit-text text-l">Hackathon resumes</h3>
+                        </div>
+                      </div>
+                      <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date bit-text">2 pm</div>
+                        <div class="timeline-content">
+                          <h3 class="bit-text text-l">Judging begins</h3>
+                        </div>
+                      </div>
+                      <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date bit-text">3:00 pm</div>
+                        <div class="timeline-content">
+                          <h3 class="bit-text text-l">Announcement of winners</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="text-center">
+      <h2 class=" md:text-6xl hollow text-4xl title-font font-medium mb-4 bit-text"><span>&#10024;</span>Gallery<span>&#10024;</span></h2>
+    </div>
+    <main class="grid-item main bg-slate-800">
+      <div class="items">
+        <div class="item item1 bg-img1" ></div>
+        <div class="item item2 bg-img2"></div>
+        <div class="item item3 bg-img3"></div>
+        <div class="item item4 bg-img4"></div>
+        <div class="item item5 bg-img5"></div>
+        <div class="item item6 bg-img6"></div>
+      </div>
+    </main>
+    
+    
+    <div class="text-center">
+        <h2 class=" md:text-6xl hollow text-4xl title-font font-medium mt-10 md:mb-2 bit-text"><span>&#10024;</span>Themes<span>&#10024;</span></h2></div>
+        <section class="overflow-hidden text-neutral-700">
+          <div class="container mx-auto px-5 py-20 lg:px-32 lg:pt-12 ">
+            <div class="-m-1 flex flex-wrap md:-m-2">
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/1.png" draggable="false" />
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/2.png"  draggable="false"/>
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/3.png" / draggable="false">
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/4.png" / draggable="false">
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/5.png" / draggable="false">
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/6.png" / draggable="false">
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/7.png" / draggable="false">
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/8.png" / draggable="false">
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/9.png" / draggable="false">
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/10.png"  draggable="false"/>
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/11.png"  draggable="false"/>
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/12.png"  draggable="false"/>
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/13.png"  draggable="false"/>
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/14.png"  draggable="false"/>
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/15.png"  draggable="false"/>
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/16.png"  draggable="false"/>
+                </div>
+              </div>
+              <div class="flex md:w-1/6 w-1/2 flex-wrap">
+                <div class="w-52 p-1 md:p-2">
+                  <img
+                    alt="gallery"
+                    class="block  rounded-lg object-cover object-center"
+                    src="./goals/17.png"  draggable="false"/>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+    
+    <div class="text-center">
+      <h2 class=" md:text-6xl hollow text-4xl title-font font-medium mt-10 md:mb-2 bit-text"><span>&#10024;</span>Domains<span>&#10024;</span></h2></div>
+  
+  <section class="text-gray-600 body-font">
+    <div class="container md:px-36 px-6 py-20 mx-auto">
+      <div class="flex flex-wrap -m-4">
+        <div class="p-4 lg:w-1/2  w-full">
+          <div class=" bg-lime-400 bg-opacity-75 px-8 pt-16 pb-20 rounded-lg overflow-hidden text-center relative">
+            <h2 class="tracking-widest text-xs title-font font-medium text-gray-40 mb-1">DOMAIN 1</h2>
+            <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900">Blockchain</h1>            
+          </div>
+          
+        </div>
+        <div class="p-4 lg:w-1/2 w-full">
+          <div class=" bg-lime-400 bg-opacity-75 px-8 pt-16 pb-20 rounded-lg overflow-hidden text-center relative">
+            <h2 class="tracking-widest text-xs title-font font-medium text-gray-40 mb-1">DOMAIN 2 </h2>
+            <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 ">Web Development</h1>
+            
+            
+            
+          </div>
+        </div>
+        </div>
+        </div>
+        </section>
+
+        <div class="text-center">
+          <h2 class=" md:text-6xl hollow text-4xl title-font font-medium mt-10 md:mb-2 bit-text"><span>&#10024;</span>Sponsers<span>&#10024;</span></h2></div>
+
+        <section class="body-font">
+          <div class="container md:px-36 px-5 py-24 mx-auto">
+            <div class="rounded-lg border-2 border-indigo-500 py-8 md:p8 mb-10">
+              <h2 class="bit-text text-4xl text-[#E5E4E2] text-center md:mb-6 mb-14"><span>&#10024;</span>Platinum<span>&#10024;</span></h2>            
+              <div class="flex px-8 flex-wrap -m-4">
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full items-center flex">
+                  <img alt="" class="md:w-full w-2/3 mx-auto block hover:scale-110 transition duration-150 ease-out" src="./sponsors/devfolio.png" draggable="false">
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full items-center flex">
+                  <img alt="" class="md:w-full w-1/6 w-full block hover:scale-110 transition duration-150 ease-out" src="./sponsors/polygon.png" draggable="false">
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full items-center flex">
+                  <img alt="" class="md:w-1/2 w-1/3 block mx-auto  hover:scale-110 transition duration-150 ease-out" src="./sponsors/github.png" draggable="false">
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full items-center flex">
+                  <img alt="" class="md:w-1/2 w-1/3 block  mx-auto hover:scale-110 transition duration-150 ease-out" src="./sponsors/MSLearn_SA_badge_generic_rgb_300ppi (1).png" draggable="false">
+                </div>       
+              </div>
+            </div>
+            <div class="rounded-lg border-2 border-indigo-500 p-8 mb-10">
+              <h2 class="bit-text text-4xl text-[#FFD700] text-center md:mb-6 mb-14"><span>&#10024;</span>Gold<span>&#10024;</span></h2>
+              <div class="flex flex-wrap -m-4 w-2/3 mx-auto">
+                <div class="lg:w-1/3 md:w-1/2 p-4 w-full items-center flex">
+                  <img alt="" class="w-full block hover:scale-110 transition duration-150 ease-out" src="./sponsors/filecoin.png" draggable="false">
+                </div>
+                <div class="lg:w-1/3 md:w-1/2 p-4 w-full items-center flex">
+                  <img alt="" class="w-full block hover:scale-110 transition duration-150 ease-out" src="./sponsors/replit.png" draggable="false">
+                </div>
+                <div class="lg:w-1/3 md:w-1/2 p-4 w-full items-center flex">
+                  <img alt="" class="block mx-auto w-full hover:scale-110 transition duration-150 ease-out" src="./sponsors/solana.png" draggable="false">
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg border-2 border-indigo-500 p-8">
+              <h2 class="bit-text text-4xl text-[#C0C0C0] text-center md:mb-6 mb-14"><span>&#10024;</span>Silver<span>&#10024;</span></h2>
+              <div class="w-2/3 mx-auto">
+                <div class="lg:w-1/3 md:w-1/2 p-4 w-full items-center flex mx-auto">
+                  <img alt="" class="w-1/2 ml-8 block hover:scale-110 transition duration-150 ease-out" src="./sponsors/wolfram.png" draggable="false">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+
+    <div class="text-center">
+      <h2 class=" md:text-6xl hollow text-4xl title-font font-medium mt-10 md:mb-2 bit-text"><span>&#10024;</span>Prizes<span>&#10024;</span></h2></div>
+      <section class="body-font">
+        <div class="container md:px-32 px-6 py-24 mx-auto hidden md:block">
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+            <div class="p-4 md:w-1/3 sm:mb-0 mb-6 mt-16 rounded-lg border-2 border-indigo-500">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full rounded-lg " src="./silver.gif" draggable="false">
+              </div>
+              <h2 class="text-2xl font-medium title-font text-white mt-5 text-center bit-text">₹5,000</h2>
+            </div>
+            <div class="p-4 md:w-1/3 sm:mb-0 mb-6 rounded-lg border-2 border-indigo-500">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full rounded-lg " src="./gold.gif" draggable="false">
+              </div>
+              <h2 class="text-2xl font-medium title-font text-white mt-5 bit-text text-center">₹6,000</h2>
+            </div>
+            <div class="p-4 md:w-1/3 sm:mb-0 mb-6 mt-32 rounded-lg border-2 border-indigo-500">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full rounded-lg" src="./Bronze.gif" draggable="false">
+              </div>
+              <h2 class="text-2xl font-medium title-font text-white mt-5 text-center bit-text">₹4,000</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="body-font">
+        <div class="container md:px-32 px-6 py-24 mx-auto md:hidden">
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+            <div class="p-4 md:w-1/3 sm:mb-0 mb-6 rounded-lg border-2 border-indigo-500">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full rounded-lg " src="./gold.gif" draggable="false">
+              </div>
+              <h2 class="text-2xl font-medium title-font text-white mt-5 bit-text text-center">₹25,000</h2>
+            </div>
+            <div class="p-4 md:w-1/3 sm:mb-0 mb-6 mt-5 rounded-lg border-2 border-indigo-500">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full rounded-lg " src="./silver.gif" draggable="false">
+              </div>
+              <h2 class="text-2xl font-medium title-font text-white mt-5 text-center bit-text">₹10,000</h2>
+            </div>
+            <div class="p-4 md:w-1/3 sm:mb-0 mb-6 mt-5 rounded-lg border-2 border-indigo-500">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full rounded-lg" src="./Bronze.gif" draggable="false">
+              </div>
+              <h2 class="text-2xl font-medium title-font text-white mt-5 text-center bit-text">₹5,000</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="text-center">
+        <h2 class=" md:text-6xl hollow text-4xl title-font font-medium mt-10 md:mb-2 bit-text"><span>&#10024;</span>Track Prize<span>&#10024;</span></h2></div>
+
+        <!-- track prize section -->
+        <section class=" body-font">
+          <div class="container md:px-32 px-10 py-20 mx-auto">
+            <div class="flex flex-wrap -m-4">
+              <div class="p-4 md:w-1/3">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                  <img class="px-10 py-10 w-full  " src="sponsors/polygon.png" alt="blog" draggable="false">
+                  <div class="p-6">
+                    
+                    <h1 class="title-font text-lg font-medium text-white mb-3 bit-text">Polygon</h1>
+                    <p class="leading-relaxed mb-3">
+                      <ul class="list-disc text-white">
+                        <li>$150 for the best hack built on Ethereum, or $200 for the best hack built on Ethereum + Polygon</li>
+                        <li>Eligibility to apply for internship/full-time roles and seed funding of up to 5,000 USD for winners!</li>
+                      </ul>
+                      </p>                    
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 md:w-1/3">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                  <img class="px-10 py-10 w-full  " src="sponsors/solana.png" alt="blog" draggable="false">
+                  <div class="p-6">                    
+                    <h1 class="title-font text-lg font-medium text-white mb-3 bit-text">Solana</h1>
+                    <p class="leading-relaxed mb-3">                    
+                      <ul class="list-disc text-white">
+                        <li><b>$USDC 100</b> for the best project beginners just starting out on Solana <b>and/or</b></li>
+                        <li><b>$USDC 250</b> for the best project that goes into depth, demonstrating higher-order code <b>and/or</b></li>
+                        <li><b>$USDC 500</b> for the best advanced project that is almost ready for full-time development.</li>
+                      </ul>
+                      </p>                    
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 md:w-1/3">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                  <img class="px-10 py-10 w-full  " src="sponsors/filecoin.png" alt="blog" draggable="false">
+                  <div class="p-6">                    
+                    <h1 class="title-font text-lg font-medium text-white mb-3 bit-text">Filecoin</h1>
+                    <p class="leading-relaxed mb-3">
+                      <ul class="list-disc text-white">
+                        <li>$250 for best use of IPFS and/or Filecoin</li>
+                      </ul>
+                      </p>                    
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 md:w-1/3">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden ">
+                  <div class="flex justify-center">
+                    <img class="px-10 py-10   " src="sponsors/github.png" alt="github" draggable="false">
+                  </div>                  
+                  <div class="p-6">                    
+                    <h1 class="title-font text-lg font-medium text-white mb-3 bit-text">Github</h1>
+                    <p class="leading-relaxed mb-3">
+                      <ul class="list-disc text-white">
+                        <li>Stickers for Winners </li>
+                        <li>Comic books for all Participants</li>
+                      </ul>
+                      </p>                    
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 md:w-1/3">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden ">
+                  <div class="flex justify-center">
+                    <img class="px-10 py-10 w-64 " src="sponsors/MSLearn_SA_badge_generic_rgb_300ppi (1).png" alt="Microsoft" draggable="false">
+                  </div>                  
+                  <div class="p-6">                    
+                    <h1 class="title-font text-lg font-medium text-white mb-3 bit-text">Microsoft</h1>
+                    <p class="leading-relaxed mb-3">
+                      <ul class="list-disc text-white">
+                        <li>LinkedIn/Xbox Premium for half of the people </li>
+                      </ul>
+                      </p>                    
+                  </div>
+                </div>
+              </div> 
+              <div class="p-4 md:w-1/3">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden ">
+                  <div class="flex justify-center">
+                    <img class="px-10 py-10 w-56 " src="sponsors/devfolio.png" alt="devfolio" draggable="false">
+                  </div>                  
+                  <div class="p-6">                    
+                    <h1 class="title-font text-lg font-medium text-white mb-3 bit-text">Devfolio</h1>
+                    <p class="leading-relaxed mb-3">
+                      <ul class="list-disc text-white">
+                        <li>Tshirts, swags and stickers for everyone</li>
+                      </ul>
+                      </p>                    
+                  </div>
+                </div>
+              </div>                            
+            </div>
+          </div>
+        </section>
+
+        
+
+      <div class="container md:px-32 px-10 pt-10 pb-10 mx-auto align-middle ">
+        <div class="p-6 py-10 rounded-lg border-2 border-indigo-500 flex flex-col relative overflow-hidden">
+          <div class="text-center">
+            <h2 class=" md:text-5xl hollow text-2xl title-font font-medium mt-2 mb-6 bit-text">Code of Conduct</h2>
+            <p class="normal-text text-2xl text-white">You can find our code of conduct <a href="https://docs.google.com/document/d/1HNc-nmtgb8ih7_J3XL5cek1Mwk_bKPypm8jbVD7pPwY/edit?usp=sharing" target="_blank"  class="text-[#eaa023]">here</a></p>
+          </div>  
+        </div>
+      </div>
+      <div class="text-center">
+        <h2 class=" md:text-6xl hollow text-4xl title-font font-medium mt-10 md:mb-2 bit-text">Contact Us</h2></div>
+        <section class="body-font">
+          <div class="container px-5 py-24 mx-auto sm:align-center">
+            <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 justify-center  md:space-y-0 space-y-6">
+              <div class="p-4 md:w-1/3 flex flex-col text-center items-center ">
+                <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-5 flex-shrink-0">
+                  <img src="./call1.png" alt="" class="" draggable="false">
+                </div>
+                <div class="flex-grow">
+                  <h2 class="text-white text-lg title-font font-medium mb-3 bit-text"><a href="tel:+917506947750">+91 75069 47750</a></h2>
+                </div>
+              </div>
+              <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+                <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-5 flex-shrink-0">
+                  <img src="./mail1.png" alt="" class="w-20" draggable="false">
+                </div>
+                <div class="flex-grow">
+                  <h2 class="text-white text-lg title-font font-medium mb-3 bit-text break-all"><a href="mailto:tinkers_codecell.cmpn@ves.ac.in">tinkers_codecell.cmpn@ves.ac.in</a></h2>
+                </div>
+              </div>
+              <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+                <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-5 flex-shrink-0">
+                  <img src="./map 1.png" alt="" class="w-20" draggable="false">
+                </div>
+                <div class="flex-grow">
+                  <h2 class="text-white text-lg title-font font-medium mb-3 bit-text"><a href="https://www.google.com/maps/place/Vivekanand+Education+Society's+Institute+Of+Technology+(VESIT)/@19.045307,72.888959,16z/data=!4m5!3m4!1s0x0:0xb7ad04bf9a389df7!8m2!3d19.0453072!4d72.8889589?hl=en-GB">V.E.S.I.T</a></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> 
+      
+        <main class="p-5 mb-10 bg-light-blue">
+          <div class="flex justify-center items-start my-2">
+            <div class="w-full sm:w-10/12 md:w-1/2 my-1">
+              <div class="text-center">
+                <h2 class=" md:text-6xl hollow text-4xl title-font font-medium mt-10 md:mb-2 bit-text"><span>&#10024;</span>FAQ<span>&#10024;</span></h2></div>
+              <ul class="flex flex-col">
+                <li class="text-white bit-text my-2 border-b-2" x-data="accordion(1)">
+                  <h2
+                    @click="handleClick()"
+                    class="flex flex-row justify-between items-center md:text-2xl text-l font-semibold p-3 cursor-pointer"
+                  >
+                    <span>What is a Hackathon ?</span>
+                    <svg
+                      :class="handleRotate()"
+                      class="fill-current text-lime-400 h-6 w-6 transform transition-transform duration-500"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                    </svg>
+                  </h2>
+                  <div
+                    x-ref="tab"
+                    :style="handleToggle()"
+                    class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                  >
+                    <p class="p-3 text-white">
+                      A hackathon is a social coding event that brings computer programmers and other interested people together to improve upon or build a new program for a certain problem statement. Syrus is a type of Altruistic hackathon where participants work to find solutions for problems such as public transport systems, education and disaster response, security, etc.
+                    </p>
+                  </div>
+                </li>
+                <li class="text-white my-2 border-b-2 bit-text" x-data="accordion(2)">
+                  <h2
+                    @click="handleClick()"
+                    class="flex flex-row text-white justify-between items-center  md:text-2xl text-l font-semibold p-3 cursor-pointer"
+                  >
+                    <span>Who all can participate in Syrus hackathon ?</span>
+                    <svg
+                      :class="handleRotate()"
+                      class="fill-current text-lime-400 h-6 w-6 transform transition-transform duration-500"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                    </svg>
+                  </h2>
+                  <div
+                    class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                    x-ref="tab"
+                    :style="handleToggle()"
+                  >
+                    <p class="p-3 text-white">
+                      The Syrus Hackathon is open for all.
+                    </p>
+                  </div>
+                </li>
+                <li class="text-white my-2 border-b-2 bit-text" x-data="accordion(3)">
+                  <h2
+                    @click="handleClick()"
+                    class="flex flex-row justify-between items-center md:text-2xl text-l font-semibold p-3 cursor-pointer"
+                  >
+                    <span>What do we get for participation ?</span>
+                    <svg
+                      :class="handleRotate()"
+                      class="fill-current text-lime-400 h-6 w-6 transform transition-transform duration-500"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                    </svg>
+                  </h2>
+                  <div
+                    class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                    x-ref="tab"
+                    :style="handleToggle()"
+                  >
+                    <p class="p-3 text-white">
+                      All participants will recieve a participation certificate as well as goodies. The winners will receive a Grand Prize consisting of a cash prize and various merchandise. However it is completely necessary for the team leader of each team to be present physically on the two days in the college.
+                    </p>
+                  </div>
+                </li> 
+                <li class="text-white my-2 border-b-2 bit-text" x-data="accordion(4)">
+                  <h2
+                    @click="handleClick()"
+                    class="flex flex-row justify-between items-center md:text-2xl text-l font-semibold p-3 cursor-pointer"
+                  >
+                    <span>What should be the size of each team ?</span>
+                    <svg
+                      :class="handleRotate()"
+                      class="fill-current text-lime-400 h-6 w-6 transform transition-transform duration-500"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                    </svg>
+                  </h2>
+                  <div
+                    class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                    x-ref="tab"
+                    :style="handleToggle()"
+                  >
+                    <p class="p-3 text-white">
+                      A particular team can contain members from 2-4.
+                    </p>
+                  </div>
+                </li>
+                <li class="text-white my-2 border-b-2 bit-text" x-data="accordion(5)">
+                  <h2
+                    @click="handleClick()"
+                    class="flex flex-row justify-between items-center md:text-2xl text-l font-semibold p-3 cursor-pointer"
+                  >
+                    <span>What will be the mode of conduct of hackathon ?</span>
+                    <svg
+                      :class="handleRotate()"
+                      class="fill-current text-lime-400 h-6 w-6 transform transition-transform duration-500"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                    </svg>
+                  </h2>
+                  <div
+                    class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                    x-ref="tab"
+                    :style="handleToggle()"
+                  >
+                    <p class="p-3 text-white">
+                      We are very glad to announce that this one will be hosted in OFFLINE mode at our campus itself.
+                    </p>
+                  </div>
+                </li>              
+              </ul>
+            </div>
+          </div>
+        </main>
+      
+    
+    <footer class="text-gray-600 bg-gray-900 orange body-font">
+      <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+        <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+          <img src="./Vector1.png" class="h-10" alt="Syrus Logo"/>
+          <span class="ml-3 text-xl text-white">CodeCell</span>
+        </a>
+        <p class="text-sm text-gray-50 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 CodeCell —
+          <a href="" class="text-gray-50 ml-1" rel="noopener noreferrer" target="_blank">@V.E.S.I.T.</a>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+          <a class="text-gray-50" href="https://www.facebook.com/syrushackathon/">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-50" href="https://twitter.com/syrus_hackathon">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-50" href="https://www.instagram.com/codecell_vesit/?hl=en">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+            </svg>
+          </a>
+          
+        </span>
+      </div>
+    </footer>
+    <script src="syrus.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
+</body>
+</html>
